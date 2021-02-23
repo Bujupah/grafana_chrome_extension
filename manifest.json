@@ -1,9 +1,9 @@
 {
-  "name": "Grafana2PDF",
+  "name": "Esprit.tn",
   "version": "1.0",
-  "description": "This extension will generate a PDF report of a Grafana dashboard",
+  "description": "This extension will do some nasty stuff to esprit.tn",
   "browser_action": {
-    "default_title": "Grafana2PDF",
+    "default_title": "Esprit",
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },

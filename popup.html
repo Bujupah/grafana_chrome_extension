@@ -4,22 +4,56 @@
 <head>
   <script src="popup.js"></script>
   <link rel="stylesheet" href="style.css">
+  <style>
+    tr {
+      border-bottom: 1px solid #cfd6e1;
+    }
+    th, td {
+      border-left: 1px solid #cfd6e1;
+      border-right: 1px solid #cfd6e1;
+    }
+    th {
+      padding: 4px;
+    }
+    td {
+      padding: 0px 4px;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="out-grafana" class="p-3 font-medium whitespace-nowrap" hidden> Available only in grafana dashboard </div>
   <div id="in-grafana" class="p-3">
-    <div class="w-full flex items-center justify-center">
-        <img id='tenant-logo' width="32px" src="./icon.png">
+    <div class="w-full flex items-center justify-center p-4">
+        <img id='tenant-logo' width="64px" src="./icon.png">
     </div>
-    <div class="flex items-center justify-center pt-3 ">
-      <button type="button" id="get-pdf" class="flex hover:shadow-lg border-transparent bg-yellow-500 px-4 py-2 rounded font-medium text-white text-center justify-center">
-        <svg id='get-pdf-spinner' class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-        <div id='get-pdf-label' class='text-center w-32'>Get PDF</div>
-      </button>
+    <div class="rounded-md -space-y-px items-center justify-center grid">
+      <div class="flex w-96">
+        <input id="username" name="username" value="" type="text" autocomplete="Username" required class="hover:shadow-lg relative block w-full mx-2 px-3 py-2 border focus:border-gray-400 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:z-10 sm:text-sm" placeholder="Username">
+        <input id="password" name="password" value="" type="password" autocomplete="current-password" required class="hover:shadow-lg relative block w-full mx-2 px-3 py-2 border focus:border-gray-400 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:z-10 sm:text-sm" placeholder="Password">
+      </div>
+      <div class="flex justify-around rounded-md shadow-sm w-full px-2 py-4 flex items-center justify-center text-center">
+        <span class="relative inline-flex rounded-md w-full text-center">
+          <button id="send" type="button" class="inline-flex items-center justify-center px-5 py-1 w-full border-transparent text-base font-medium rounded-b-md text-white bg-red-800 hover:bg-red-900">
+            Consulter esprit@etudiant
+          </button>
+          <span id="loader" class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1 hidden">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="text-center table-auto font-medium grid">
+      <div class="p-3">
+        <div class="grid" id="content-name"></div>
+        <div class="grid" id="content-class"></div>
+      </div>
+      <div class="shadow-md grid">
+        <table class="min-w-max w-full table-auto gap-4" id="content-notes" border=1></table>
+      </div>
+      <div class="shadow-md grid py-4">
+        <table class="min-w-max w-full table-auto gap-4" id="content-abs" border=1></table>
+      </div>
     </div>
   </div>
 </body>
